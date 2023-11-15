@@ -1,0 +1,4 @@
+outs:
+- md5: 135f1da1d3c39e73b7e5ad94daee76a7
+  size: 43847794
+  path: msigdb.v7.5.1.json

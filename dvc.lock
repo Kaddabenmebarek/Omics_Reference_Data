@@ -1,0 +1,70 @@
+schema: '2.0'
+stages:
+  prepare_msigdb:
+    cmd: python src/main.py public_data/msigdb.v7.5.1.json formated_genesets/msigdb.v7.5.1.json
+      msigdb
+    deps:
+    - path: public_data/msigdb.v7.5.1.json
+      md5: 135f1da1d3c39e73b7e5ad94daee76a7
+      size: 43847794
+    - path: src/__init__.py
+      md5: d41d8cd98f00b204e9800998ecf8427e
+      size: 0
+    - path: src/gene_consistency.py
+      md5: 59de2ca1d9f4442c549fb353a848cc6d
+      size: 2927
+    - path: src/genesets_declaration.py
+      md5: 44ef650211dbb74ee3e7bab7316e9739
+      size: 3741
+    - path: src/json_processing.py
+      md5: 288a4214f71e17b9452925adca1354a5
+      size: 1448
+    - path: src/main.py
+      md5: 7311092b0dea905475fc63c91b513bd2
+      size: 1098
+    outs:
+    - path: formated_genesets/msigdb.v7.5.1.json
+      md5: f5b91f1e4eb7de207c1561048a41d571
+      size: 46092105
+  prepare_aliases:
+    cmd: cd reference_genes && ./get_new_genome.sh  && dvc add  *_alias.txt
+    deps:
+    - path: reference_genes/BioMart_version.tsv
+      md5: a8d7661deaf77f7e5cc782f2deebebf4
+      size: 180
+    - path: reference_genes/get_new_genome.sh
+      md5: e8f61868af7eea1c833cea992ef05f87
+      size: 2792
+  prepare_inhouse:
+    cmd: python src/main.py inhouse_data/Geneset_inventory_20220513.csv formated_genesets/stock_care_export.json
+      stockcare
+    deps:
+    - path: inhouse_data/Geneset_inventory_20220513.csv
+      md5: 46ba924c375d8314fa44ff2df8a08371
+      size: 9119
+    - path: inhouse_data/data
+      md5: 3c483615abe8c2efcc63e598674f286c.dir
+      size: 40328
+      nfiles: 46
+    - path: src/__init__.py
+      md5: d41d8cd98f00b204e9800998ecf8427e
+      size: 0
+    - path: src/gene_consistency.py
+      md5: 59de2ca1d9f4442c549fb353a848cc6d
+      size: 2927
+    - path: src/genesets_declaration.py
+      md5: 44ef650211dbb74ee3e7bab7316e9739
+      size: 3741
+    - path: src/json_processing.py
+      md5: 288a4214f71e17b9452925adca1354a5
+      size: 1448
+    - path: src/main.py
+      md5: 7311092b0dea905475fc63c91b513bd2
+      size: 1098
+    - path: src/read_internal_dump.py
+      md5: 25ce8e17a0a01acb5d524b710218e42a
+      size: 2704
+    outs:
+    - path: formated_genesets/stock_care_export.json
+      md5: c8679a8a6198acc922c0b1ce763c545a
+      size: 72342

@@ -1,0 +1,32 @@
+stages:
+  prepare_msigdb:
+    cmd: python src/main.py public_data/msigdb.v7.5.1.json formated_genesets/msigdb.v7.5.1.json
+      msigdb
+    deps:
+    - public_data/msigdb.v7.5.1.json
+    - src/__init__.py
+    - src/gene_consistency.py
+    - src/genesets_declaration.py
+    - src/json_processing.py
+    - src/main.py
+    outs:
+    - formated_genesets/msigdb.v7.5.1.json
+  prepare_inhouse:
+    cmd: python src/main.py inhouse_data/Geneset_inventory_20220513.csv formated_genesets/stock_care_export.json
+      stockcare
+    deps:
+    - inhouse_data/Geneset_inventory_20220513.csv
+    - inhouse_data/data
+    - src/__init__.py
+    - src/genesets_declaration.py
+    - src/json_processing.py
+    - src/gene_consistency.py
+    - src/main.py
+    - src/read_internal_dump.py
+    outs:
+    - formated_genesets/stock_care_export.json
+  prepare_aliases:
+    cmd: cd reference_genes && ./get_new_genome.sh  && dvc add  *_alias.txt
+    deps:
+    - reference_genes/BioMart_version.tsv
+    - reference_genes/get_new_genome.sh

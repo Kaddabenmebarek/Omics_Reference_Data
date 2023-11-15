@@ -1,0 +1,13 @@
+md5: b31b427bf55785182343d3483b75c306
+frozen: true
+deps:
+- path: GRCm38_98_p6/Mus_musculus.GRCm38.98.csv
+  repo:
+    url: git@gitlab.idorsia.com:scdd/infrastructure/applications/bioinformatics/bio-reference-data/reference-genomes.git
+    rev_lock: 8dbbde8d1cc1093ab17f5fb451a2562978521028
+outs:
+- md5: 8623dcbe580945f56adaf310c89658b5
+  size: 3507540
+  path: Mus_musculus.GRCm38.98.csv
+  desc: Import mus genome revision for reference genomes repository. CSV is created
+    by CI/CD of this repo and we use this to validate the gene names

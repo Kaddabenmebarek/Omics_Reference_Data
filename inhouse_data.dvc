@@ -1,0 +1,5 @@
+outs:
+- md5: 1f1403c5f363ce12c00f0206353e82fd.dir
+  size: 128479
+  nfiles: 48
+  path: inhouse_data

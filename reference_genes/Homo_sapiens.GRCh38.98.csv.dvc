@@ -1,0 +1,13 @@
+md5: 3cf8bdcd23ad44da39f48dcc117bf660
+frozen: true
+deps:
+- path: GRCh38_98_p13/Homo_sapiens.GRCh38.98.csv
+  repo:
+    url: git@gitlab.idorsia.com:scdd/infrastructure/applications/bioinformatics/bio-reference-data/reference-genomes.git
+    rev_lock: 8dbbde8d1cc1093ab17f5fb451a2562978521028
+outs:
+- md5: a7f70af295d0b3cd90104c01b108d03f
+  size: 3708397
+  path: Homo_sapiens.GRCh38.98.csv
+  desc: Import latest genome revision for reference genomes repository. CSV is created
+    by CI/CD of this repo and we sue this to validate the gene names
